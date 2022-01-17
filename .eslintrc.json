@@ -1,0 +1,60 @@
+{
+	"root": true,
+    "extends": [
+		"eslint:recommended",
+		"plugin:import/recommended"
+    ],
+	"plugins": ["import", "jest"],
+	"settings": {
+		"import/resolver": {
+			"node": {},
+			"typescript": {
+				"project": "."
+			}
+		}
+	},
+	"env": {
+		"es6": true
+	},
+	"parserOptions": {
+		"sourceType": "module"
+	},
+    "overrides": [
+		{
+			"files": ["./*.js"],
+			"env": {
+				"commonjs": true
+			}
+		},
+		{
+			"files": ["./src/**/*.js"],
+			"env": {
+				"browser": true
+			},
+			"extends": ["airbnb-base", "./eslint.rules.json"]
+		},
+		{
+			"files": ["./express/**/*.js"],
+			"env": {
+				"node": true
+			},
+			"extends": ["airbnb-base", "./eslint.rules.json"],
+			"rules": {
+				"no-console": "off"
+			}
+		},
+		{
+			"files": ["./dist/**/*.js"],
+			"env": {
+				"browser": true
+			}
+		},
+		{
+			"files": ["**/*.spec.js"],
+			"env": {
+				"jest": true
+			},
+			"extends": ["plugin:jest/all", "plugin:jest-formatting/strict", "./eslint.rules.json"]
+		}
+	]
+}

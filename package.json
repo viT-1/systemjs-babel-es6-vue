@@ -1,0 +1,61 @@
+{
+    "name": "systemjs-babel-es6-vue",
+    "version": "0.1.0",
+	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
+	"keywords": [
+		"nobundle",
+		"systemjs",
+		"es6 modules",
+		"vue",
+		"jest",
+		"esm",
+		"alias"
+	],
+	"repository": {
+        "type": "git",
+        "url": "git://github.com/viT-1/systemjs-babel-es6-vue.git"
+    },
+	"scripts": {
+		"lint": "eslint **/*.js",
+		"copyfiles": "rm -rf dist && cpx ./src/**/*.html ./dist",
+		"resolve-alias": "babel src --out-dir dist",
+		"build": "npm run copyfiles && npm run resolve-alias",
+		"test": "jest --runInBand --no-cache",
+		"clj": "jest --clearCache",
+		"www": "node -r esm ./express/serve-static.js"
+	},
+	"dependencies": {
+		"esm": "3.2.25",
+		"express": "4.17.2"
+	},
+	"devDependencies": {
+		"@babel/cli": "7.16.8",
+		"@babel/core": "7.16.7",
+		"babel-plugin-add-import-extension": "1.6.0",
+		"babel-plugin-tsconfig-paths-module-resolver": "1.0.3",
+		"cpx2": "4.1.2",
+		"@jest/globals": "27.4.6",
+		"eslint": "8.5.0",
+		"eslint-config-airbnb-base": "15.0.0",
+		"eslint-plugin-import": "2.25.3",
+		"eslint-plugin-jest": "25.3.4",
+		"eslint-plugin-jest-formatting": "3.1.0",
+		"eslint-import-resolver-node": "0.3.6",
+		"eslint-import-resolver-typescript": "2.5.0",
+		"jest": "27.4.7",
+		"jest-esm-transformer": "1.0.0",
+		"jest-resolver-tsconfig-paths": "0.14.0"
+	},
+	"jest": {
+		"collectCoverage": true,
+		"collectCoverageFrom": [
+			"src/**/*.js",
+			"!**/*-conf.js",
+			"!**/index.js"
+		],
+		"testMatch": ["<rootDir>/src/**/*.spec.js"],
+		"transform": { "\\.m?jsx?$": "jest-esm-transformer" },
+		"resolver": "jest-resolver-tsconfig-paths",
+		"silent": true
+	}
+}

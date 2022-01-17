@@ -1,0 +1,21 @@
+{
+	"rules": {
+		"brace-style": ["error", "stroustrup"],
+		"comma-dangle": ["error", "always-multiline"],
+		"indent": ["error", "tab"],
+		"no-trailing-spaces": "error",
+		"no-var": "error",
+		"quotes": ["error", "single"],
+		"semi": ["error", "always"],
+		"spaced-comment": ["error", "always"],
+		"import/no-default-export": "error",
+		"import/prefer-default-export": "off",
+		"import/no-unresolved": ["error", { "ignore": ["\\/dist-gh-pages\\/.*\\.js"] }],
+		"linebreak-style": "off",
+		"no-tabs": "off",
+		"import/extensions": ["error", {
+			"js": "never",
+			"json": "never"
+		}]
+	}
+}

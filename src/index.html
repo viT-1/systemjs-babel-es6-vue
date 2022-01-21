@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<h1>Red pill or blue pill?</h1>
-<script type="module">
-	import { run } from './main.js';
-	run();
-</script>
+<html>
+	<body>
+		<div iam-app-vue>
+			Greet to <input v-model="greeterTarget" type="text" />
+			<greeter-h :target="greeterTarget"></greeter-h>
+		</div>
+		<h1>Red pill or blue pill?</h1>
+
+		<script type="module">
+			import { run } from './main.js';
+			run();
+		</script>
+	</body>
+</html>

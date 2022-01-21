@@ -1,7 +1,8 @@
 import { describe, expect, it } from '@jest/globals';
+
 import { Greeter, conf } from '#common/Greeter';
 
-describe('module Greeter.js', () => {
+describe('module #common/Greeter', () => {
 	it(`greets you like "${conf.greetText}"`, () => {
 		expect.assertions(2);
 

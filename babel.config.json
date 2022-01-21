@@ -1,7 +1,15 @@
 {
-	"plugins": [
-		"tsconfig-paths-module-resolver",
-		"add-import-extension"
-	],
-	"exclude": [".*\\.spec\\..*"]
+	"env": {
+		"envJest": {
+			"plugins": [
+				["tsconfig-paths-module-resolver", {
+					"alias": {
+						"vue": ["./node_modules/vue/dist/vue.common.dev.js"]
+					}
+				}],
+				"transform-html-import-to-string"
+			],
+			"presets": ["@babel/preset-env"]
+		}
+	}
 }

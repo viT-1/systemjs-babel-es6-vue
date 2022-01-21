@@ -1,13 +1,13 @@
 import { describe, expect, it } from '@jest/globals';
 
 import { GreeterUse } from '#common/GreeterUse';
-import { conf as GreeterConf } from '#common/Greeter';
+import { conf } from '#common/Greeter';
 
-describe('module GreeterUse.js', () => {
-	it(`greet by default "${GreeterConf.defaultTarget}"`, () => {
+describe('module #common/GreeterUse', () => {
+	it(`greet by default "${conf.defaultTarget}"`, () => {
 		expect.assertions(1);
 
-		expect(GreeterUse.say()).toContain(GreeterConf.defaultTarget);
+		expect(GreeterUse.say()).toContain(conf.defaultTarget);
 	});
 
 	const customTarget = 'Sun';
@@ -18,9 +18,9 @@ describe('module GreeterUse.js', () => {
 		expect(GreeterUse.say(customTarget)).toContain(customTarget);
 	});
 
-	it(`greets anyone like "${GreeterConf.greetText}"`, () => {
+	it(`greets anyone like "${conf.greetText}"`, () => {
 		expect.assertions(1);
 
-		expect(GreeterUse.say()).toContain(GreeterConf.greetText);
+		expect(GreeterUse.say()).toContain(conf.greetText);
 	});
 });

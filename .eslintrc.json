@@ -50,7 +50,7 @@
 			}
 		},
 		{
-			"files": ["**/*.spec.js"],
+			"files": ["./src/**/*.spec.js"],
 			"env": {
 				"jest": true
 			},

@@ -1,0 +1,16 @@
+{
+	"env": {
+		"envEsm": {
+			"plugins": [
+				"transform-html-import-to-string",
+				["@snowpack/babel-plugin-package-import", {
+					"webModulesDir": "./src",
+					"importMap": "importmap.esm.json"
+				}],
+				"tsconfig-paths-module-resolver",
+				"add-import-extension",
+				["replace-import-extension", { "extMapping": { ".html.js": ".html" }}]
+			]
+		}
+	}
+}

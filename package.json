@@ -17,7 +17,7 @@
         "url": "git://github.com/viT-1/systemjs-babel-es6-vue.git"
     },
 	"scripts": {
-		"linth": "linthtml ./src/**/*.htmXXX && eslint ./src/**/*.{html,vue}",
+		"linth": "linthtml ./src/**/*.htmXXX",
 		"lint": "eslint ./src/**/*.js",
 		"copyfiles": "rm -rf dist && cpx ./src/index.html ./dist",
 		"resolve-alias": "set NODE_ENV=envEsm&&babel src --out-dir dist --ignore **/*.spec.js --config-file ./resolve-alias-babel.config.json",

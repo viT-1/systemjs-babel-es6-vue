@@ -1,11 +1,14 @@
-import { Greeter } from '#common/Greeter';
+import { Greeter, conf as confGreeter } from '#common/Greeter';
 
 import { template } from './greeter-h.config';
 
+// @vue/component
 const greeterH = {
-	template,
 	props: {
-		target: { type: String },
+		target: {
+			default: confGreeter.defaultTarget,
+			type: String,
+		},
 	},
 	data() {
 		return {
@@ -22,6 +25,7 @@ const greeterH = {
 			this.greeter = new Greeter(val);
 		},
 	},
+	template,
 };
 
 export { greeterH };

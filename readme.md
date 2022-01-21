@@ -26,6 +26,7 @@ Jest [is not ready for esm](https://github.com/facebook/jest/issues/9430) and us
 rules:
 - [eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest) + [eslint-plugin-jest-formatting](https://www.npmjs.com/package/eslint-plugin-jest-formatting) - rules for Jest tests
 - [eslint-config-airbnb-base](https://www.npmjs.com/package/eslint-config-airbnb-base) - common dev community rules
+- [eslint-plugin-vue](https://www.npmjs.com/package/eslint-plugin-vue) for vue components but [can't lint vue html templates](https://github.com/vuejs/vue-eslint-parser/issues/28) if they are [non-SFC](https://github.com/vuejs/eslint-plugin-vue/issues/490).
 - [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) - rules about esm imports
 
 imports:

@@ -11,5 +11,6 @@
 			],
 			"presets": ["@babel/preset-env"]
 		}
-	}
+	},
+	"comments": false
 }

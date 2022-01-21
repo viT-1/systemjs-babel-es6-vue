@@ -31,7 +31,7 @@
 			"env": {
 				"browser": true
 			},
-			"extends": ["airbnb-base", "./eslint.rules.json"]
+			"extends": ["airbnb-base", "plugin:vue/recommended", "./eslint.rules.json"]
 		},
 		{
 			"files": ["./express/**/*.js"],

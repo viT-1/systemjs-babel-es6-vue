@@ -4,7 +4,7 @@ import {
 	it,
 } from '@jest/globals';
 import { sprintf } from 'printj';
-// import { parseCssSelector } from '@tokey/css-selector-parser';
+import domBySelector from 'dom-by-selector'; // is not supported attribute selectors
 
 import { appVue, conf } from '.';
 
@@ -34,13 +34,11 @@ describe('module ~/app-vue', () => {
 	it(`если DOM содержит ${conf.elSelector}, Vue инициализируется`, () => {
 		expect.assertions(1);
 
-		// console.log(parseCssSelector(conf.elSelector));
-
 		// Перед активацией инициализируем DOM
-		document.body.innerHTML = '<div iam-app-vue><greeter-h/></div>';
+		document.body.innerHTML = domBySelector(conf.elSelector);
 		const v = appVue.init(); // Активируем Vue
 
-		// console.log('jsdom rendering:', document.querySelector('[iam-app-vue]').outerHTML);
+		// console.log('jsdom rendering:', document.querySelector(conf.elSelector).outerHTML);
 
 		expect(v).not.toBeNull();
 	});

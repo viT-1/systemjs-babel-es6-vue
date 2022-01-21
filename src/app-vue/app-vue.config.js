@@ -1,6 +1,6 @@
 import { conf as confGreeterH, options as greeterH } from '#common/greeter-h';
 
-const elSelector = '[iam-app-vue]';
+const elSelector = '#app-vue';
 
 const components = {
 	[confGreeterH.tagName]: greeterH,

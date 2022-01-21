@@ -1,6 +1,6 @@
 {
     "name": "systemjs-babel-es6-vue",
-    "version": "1.0.0",
+    "version": "1.0.1",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",

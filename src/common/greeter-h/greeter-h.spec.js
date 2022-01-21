@@ -46,8 +46,10 @@ describe('component #common/greeter-h', () => {
 		expect(wrapper.html()).toContain(initialTarget);
 
 		wrapper.setProps({ target: mutatedTarget });
-		localVue.nextTick();
 
-		expect(wrapper.html()).toContain(mutatedTarget);
+		// https://stackoverflow.com/questions/53781794/vue-test-utils-is-updating-the-component-data-but-not-re-rendering-the-dom
+		wrapper.vm.$nextTick(() => {
+			expect(wrapper.html()).toContain(mutatedTarget);
+		});
 	});
 });

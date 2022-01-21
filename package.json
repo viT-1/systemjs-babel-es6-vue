@@ -1,6 +1,6 @@
 {
     "name": "systemjs-babel-es6-vue",
-    "version": "1.0.1",
+    "version": "1.0.2",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",
@@ -19,8 +19,8 @@
 	"scripts": {
 		"linth": "linthtml ./src/**/*.htmXXX",
 		"lint": "eslint ./src/**/*.js",
-		"copyfiles": "rm -rf dist && cpx ./src/**/*.html ./dist",
-		"resolve-alias": "set NODE_ENV=envEsm&&babel src --out-dir dist --config-file ./resolve-alias-babel.config.json",
+		"copyfiles": "rm -rf dist && cpx ./src/index.html ./dist",
+		"resolve-alias": "set NODE_ENV=envEsm&&babel src --out-dir dist --ignore **/*.spec.js --config-file ./resolve-alias-babel.config.json",
 		"build": "npm run copyfiles && npm run resolve-alias",
 		"test": "set NODE_ENV=envJest&&node -r esm ./node_modules/jest/bin/jest.js --runInBand --no-cache",
 		"clj": "jest --clearCache",

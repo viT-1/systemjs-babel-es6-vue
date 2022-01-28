@@ -3,6 +3,9 @@ Easy standardized configuration in this configuration hell of custom plugins.
 tsconfig is used to define project aliases to folders (even to single file).
 importmap is used to resolve imports to get paths of cdns for js libraries.
 
+importmaps are fixed with package.json dependencies versions with [mustache.render](https://github.com/viT-1/systemjs-babel-es6-vue/blob/06d7265961464c4c27876d3f5e0af9230bec013a/map-packages.js#L19) and used to resolve (rewrite names to uri paths) modules
+by [@snowpack/babel-plugin-package-import](https://www.npmjs.com/package/@snowpack/babel-plugin-package-import#user-content-plugin-options) at [resolve-alias stage](https://github.com/viT-1/systemjs-babel-es6-vue/blob/b59b7c91a3da7d0cf5077c66742b64ab85b7bdb4/package.json#L24)
+
 ## Babel
 Transform-plugins to resolve project alias & extensions:
 - [tsconfig-paths-module-resolver](https://www.npmjs.com/package/babel-plugin-tsconfig-paths-module-resolver)

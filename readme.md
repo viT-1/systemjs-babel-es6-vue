@@ -35,5 +35,5 @@ imports:
 
 ## LintHtml
 
-## Not for projecy but peer dependencies =(
+## No need for project but peer dependencies =(
 - [vue-template-compiler](https://github.com/vuejs/vue-test-utils/issues/1399#issuecomment-1023985291). This project isn't used .vue files...

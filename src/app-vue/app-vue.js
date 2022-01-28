@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { sprintf } from 'printj';
+import mustache from 'mustache';
 
 import { components, elSelector as el, warnings } from './app-vue.config';
 import { conf as confGreeter } from '#common/Greeter';
@@ -11,7 +11,7 @@ const appVue = {
 		Vue.config.productionTip = false;
 
 		if (!document.querySelector(el)) {
-			throw Error(sprintf(warnings.elSelectorIsNotFound, el));
+			throw Error(mustache.render(warnings.elSelectorIsNotFound, { elSelector: el }));
 		}
 
 		return new Vue({

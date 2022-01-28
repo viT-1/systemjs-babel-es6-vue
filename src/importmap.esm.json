@@ -1,6 +1,6 @@
 {
 	"imports": {
-		"printj": "https://cdn.jsdelivr.net/npm/printj@1.3.0/printj.mjs",
-		"vue": "https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.esm.browser.min.js"
+		"mustache": "https://cdn.jsdelivr.net/npm/mustache@{{mustache}}/mustache.mjs",
+		"vue": "https://cdn.jsdelivr.net/npm/vue@{{vue}}/dist/vue.esm.browser.min.js"
 	}
 }

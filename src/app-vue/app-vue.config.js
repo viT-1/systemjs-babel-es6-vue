@@ -7,7 +7,7 @@ const components = {
 };
 
 const warnings = {
-	elSelectorIsNotFound: '%s is not found!', // printj format
+	elSelectorIsNotFound: '{{elSelector}} is not found!', // mustache format
 };
 
 export {

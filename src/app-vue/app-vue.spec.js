@@ -3,7 +3,7 @@ import {
 	expect,
 	it,
 } from '@jest/globals';
-import { sprintf } from 'printj';
+import mustache from 'mustache';
 import domBySelector from 'dom-by-selector'; // is not supported attribute selectors
 
 import { appVue, conf } from '.';
@@ -21,7 +21,7 @@ describe('app-vue.config', () => {
 });
 
 describe('module ~/app-vue', () => {
-	const errorAboutAppContainer = sprintf(conf.warnings.elSelectorIsNotFound, conf.elSelector);
+	const errorAboutAppContainer = mustache.render(conf.warnings.elSelectorIsNotFound, conf);
 
 	it(`should throw error "${errorAboutAppContainer}" if dom isn't correct for Vue app mount`, () => {
 		expect.assertions(1);

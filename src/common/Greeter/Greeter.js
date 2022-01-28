@@ -1,4 +1,4 @@
-import { sprintf } from 'printj';
+import mustache from 'mustache';
 
 import { defaultTarget, greetFormat, greetText } from './Greeter.config';
 
@@ -7,7 +7,7 @@ function Greeter(target) {
 }
 
 Greeter.prototype.greet = function greet() {
-	return sprintf(greetFormat, greetText, this.greetTarget);
+	return mustache.render(greetFormat, { text: greetText, target: this.greetTarget });
 };
 
 export { Greeter };

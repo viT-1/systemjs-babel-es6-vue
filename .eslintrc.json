@@ -1,4 +1,5 @@
 {
+	"ignorePatterns": ["./node_modules/*"],
 	"root": true,
     "extends": [
 		"eslint:recommended",
@@ -24,7 +25,8 @@
 			"files": ["./*.js"],
 			"env": {
 				"commonjs": true
-			}
+			},
+			"extends": ["./eslint.rules.json"]
 		},
 		{
 			"files": ["./src/**/*.js"],
@@ -47,6 +49,9 @@
 			"files": ["./dist/**/*.js"],
 			"env": {
 				"browser": true
+			},
+			"rules": {
+				"import/no-unresolved": "off"
 			}
 		},
 		{

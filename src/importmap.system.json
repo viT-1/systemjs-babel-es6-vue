@@ -1,0 +1,6 @@
+{
+	"imports": {
+		"mustache": "https://cdn.jsdelivr.net/npm/mustache@{{mustache}}/mustache.min.js",
+		"vue": "https://cdn.jsdelivr.net/npm/vue@{{vue}}/dist/vue.min.js"
+	}
+}

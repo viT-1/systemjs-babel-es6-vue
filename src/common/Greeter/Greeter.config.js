@@ -1,5 +1,5 @@
 const greetText = 'Nice to see you';
-const greetFormat = '%s, %s!'; // sprintf-js format
+const greetFormat = '{{text}}, {{target}}!'; // mustache format
 const defaultTarget = 'World';
 
 export {

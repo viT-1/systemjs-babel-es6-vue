@@ -4,7 +4,7 @@
 			"plugins": [
 				"transform-html-import-to-string",
 				["@snowpack/babel-plugin-package-import", {
-					"webModulesDir": "./src",
+					"webModulesDir": "./dist",
 					"importMap": "importmap.esm.json"
 				}],
 				"tsconfig-paths-module-resolver",

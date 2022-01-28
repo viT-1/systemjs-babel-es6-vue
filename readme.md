@@ -34,3 +34,6 @@ imports:
 - [eslint-import-resolver-node](https://www.npmjs.com/package/eslint-import-resolver-node) used with resolver-typescript, both [instead](https://github.com/viT-1/dist-gh-pages/commit/8fca781dede871be8f8f5d7841f00f3424878b34#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L37) of using [eslint-import-resolver-alias](https://www.npmjs.com/package/eslint-import-resolver-alias)
 
 ## LintHtml
+
+## Not for projecy but peer dependencies =(
+- [vue-template-compiler](https://github.com/vuejs/vue-test-utils/issues/1399#issuecomment-1023985291). This project isn't used .vue files...

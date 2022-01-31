@@ -1,3 +1,4 @@
+import arg from 'arg';
 import { readFileSync, writeFileSync } from 'fs';
 
 import { dependencies } from './package';
@@ -9,13 +10,21 @@ const dirs = {
 	dest: './dist', // destination folder
 };
 
-// TODO: glob
-const importmapsPaths = [
-	`${dirs.src}/importmap.system.json`,
-	`${dirs.src}/importmap.esm.json`,
-];
+const modeKey = '--mode';
+const args = arg({ [modeKey]: String });
+const mode = args[modeKey];
+if (mode) {
+	// TODO: glob
+	const filesPaths = [
+		`${dirs.src}/importmap.${mode}.json`,
+		`${dirs.dest}/index.${mode}.html`, // TODO: from dest to src, but package.json create dir script unstead cpx index html
+	];
 
-importmapsPaths.forEach((path) => {
-	const output = mustache.render(readFileSync(path).toString(), dependencies);
-	writeFileSync(path.replace(dirs.src, dirs.dest), output);
-});
+	filesPaths.forEach((path) => {
+		const output = mustache.render(readFileSync(path).toString(), dependencies);
+		writeFileSync(path.replace(dirs.src, dirs.dest), output);
+	});
+}
+else {
+	new Error(`Set ${modeKey} please!`);
+}

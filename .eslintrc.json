@@ -1,5 +1,5 @@
 {
-	"ignorePatterns": ["./node_modules/*"],
+	"ignorePatterns": ["/node_modules", "/dist"],
 	"root": true,
     "extends": [
 		"eslint:recommended",
@@ -43,15 +43,6 @@
 			"extends": ["airbnb-base", "./eslint.rules.json"],
 			"rules": {
 				"no-console": "off"
-			}
-		},
-		{
-			"files": ["./dist/**/*.js"],
-			"env": {
-				"browser": true
-			},
-			"rules": {
-				"import/no-unresolved": "off"
 			}
 		},
 		{

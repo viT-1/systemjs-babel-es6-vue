@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="systemjs-importmap" src="importmap.system.json"></script>
+		<script>
+			if (typeof Promise === 'undefined')
+			  document.write('<script src="https://cdn.jsdelivr.net/npm/bluebird@{{bluebird}}/js/browser/bluebird.min.js"><\/script>');
+			if (typeof fetch === 'undefined')
+			  document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@{{whatwg-fetch}}/dist/fetch.umd.min.js"><\/script>');
+		  </script>
+		<script src="https://cdn.jsdelivr.net/npm/systemjs@{{systemjs}}/dist/system.min.js"></script>
+	</head>
+	<body>
+		<div id="app-vue">
+			Greet to <input v-model="greeterTarget" type="text" />
+			<greeter-h :target="greeterTarget"></greeter-h>
+		</div>
+		<h1>Red pill or SystemJs pill?</h1>
+		<script>
+			System.import('./main.js').then(function(main) {
+				main.run();	
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+{
+	"extends": "./babel.alias-and-html.json",
+	"plugins": [
+		"@babel/plugin-transform-shorthand-properties",
+		"@babel/plugin-transform-modules-systemjs",
+		"@babel/plugin-transform-computed-properties"
+	]
+}

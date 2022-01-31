@@ -1,0 +1,9 @@
+{
+	"extends": "./babel.alias-and-html.json",
+	"plugins": [
+		["@snowpack/babel-plugin-package-import", {
+			"webModulesDir": "./dist",
+			"importMap": "importmap.esm.json"
+		}]
+	]
+}

@@ -1,6 +1,6 @@
 {
 	"name": "systemjs-babel-es6-vue",
-	"version": "1.0.4",
+	"version": "2.0.0",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",
@@ -19,26 +19,34 @@
 	"scripts": {
 		"linth": "linthtml ./src/**/*.htmXXX",
 		"lint": "eslint **/*.js",
-		"imaps": "node -r esm ./map-packages.js",
-		"copyfiles": "rm -rf dist && cpx ./src/index.html ./dist && npm run imaps",
-		"resolve-alias": "set NODE_ENV=envEsm&&babel src --out-dir dist --ignore **/*.spec.js --config-file ./resolve-alias-babel.config.json",
-		"sys": "babel --plugins @babel/plugin-transform-modules-systemjs .dist/script.js",
-		"build": "npm run copyfiles && npm run resolve-alias",
+		"esm-copyf": "rm -rf dist && cpx ./src/index.esm.html ./dist && node -r esm ./map-packages.js --mode esm",
+		"esm-src": "babel src --out-dir dist --ignore **/*.spec.js --config-file ./babel.esm.json",
+		"esm-build": "npm run esm-copyf && npm run esm-src",
+		"esm-www": "node -r esm ./express/serve-static.js --defPageFileName index.esm.html",
+		"sys-copyf": "rm -rf dist && cpx ./src/index.system.html ./dist && node -r esm ./map-packages.js --mode system",
+		"sys-src": "babel src --out-dir dist --ignore **/*.spec.js --config-file ./babel.systemjs.json",
+		"sys-build": "npm run sys-copyf && npm run sys-src",
+		"sys-www": "node -r esm ./express/serve-static.js --defPageFileName index.system.html",
 		"test": "set NODE_ENV=envJest&&node -r esm ./node_modules/jest/bin/jest.js --runInBand --no-cache",
-		"clj": "jest --clearCache",
-		"www": "node -r esm ./express/serve-static.js"
+		"clj": "jest --clearCache"
 	},
 	"dependencies": {
-		"@tokey/css-selector-parser": "0.5.1",
+		"arg": "5.0.1",
+		"bluebird": "3.7.2",
 		"esm": "3.2.25",
 		"express": "4.17.2",
 		"mustache": "4.2.0",
-		"vue": "2.6.14"
+		"systemjs": "6.12.1",
+		"vue": "2.6.14",
+		"whatwg-fetch": "3.6.2"
 	},
 	"devDependencies": {
 		"@babel/cli": "7.16.8",
 		"@babel/core": "7.16.7",
 		"@babel/preset-env": "7.16.8",
+		"@babel/plugin-transform-computed-properties": "7.16.7",
+		"@babel/plugin-transform-modules-systemjs": "7.16.7",
+		"@babel/plugin-transform-shorthand-properties": "7.16.7",
 		"@snowpack/babel-plugin-package-import": "1.1.6",
 		"babel-plugin-add-import-extension": "1.6.0",
 		"babel-plugin-replace-import-extension": "1.1.2",

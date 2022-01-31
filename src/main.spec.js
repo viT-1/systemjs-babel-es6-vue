@@ -5,7 +5,7 @@ import {
 	jest,
 } from '@jest/globals';
 
-import indexHtml from '~/index.html';
+import indexHtml from '~/index.esm.html'; // tests in native esm mode, not systemjs
 import { run } from '~/main';
 
 describe('module ~/main', () => {

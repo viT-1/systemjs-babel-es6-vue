@@ -1,0 +1,8 @@
+{
+	"plugins": [
+		"transform-html-import-to-string",
+		"tsconfig-paths-module-resolver",
+		"add-import-extension",
+		["replace-import-extension", { "extMapping": { ".html.js": ".html" }}]
+	]
+}

@@ -1,6 +1,6 @@
 {
 	"name": "systemjs-babel-es6-vue",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",
@@ -25,8 +25,9 @@
 		"esm-www": "node -r esm ./express/serve-static.js --defPageFileName index.esm.html",
 		"sys-copyf": "rm -rf dist && mkdir dist && node -r esm ./map-packages.js --mode system",
 		"sys-src": "babel src --out-dir dist --ignore **/*.spec.js --config-file ./babel.systemjs.json",
-		"sys-build": "npm run sys-copyf && npm run sys-src",
+		"sys-build": "npm run sys-copyf && npm run sys-src && npm run min-js",
 		"sys-www": "node -r esm ./express/serve-static.js --defPageFileName index.system.html",
+		"min-js": "minify-all-js ./dist",
 		"test": "set NODE_ENV=envJest&&node -r esm ./node_modules/jest/bin/jest.js --runInBand --no-cache",
 		"clj": "jest --clearCache"
 	},
@@ -36,6 +37,7 @@
 		"esm": "3.2.25",
 		"express": "4.17.2",
 		"mustache": "4.2.0",
+		"minify-all-js": "0.1.9",
 		"systemjs": "6.12.1",
 		"vue": "2.6.14",
 		"whatwg-fetch": "3.6.2"

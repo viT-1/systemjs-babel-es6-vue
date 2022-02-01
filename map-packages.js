@@ -17,7 +17,7 @@ if (mode) {
 	// TODO: glob
 	const filesPaths = [
 		`${dirs.src}/importmap.${mode}.json`,
-		`${dirs.dest}/index.${mode}.html`, // TODO: from dest to src, but package.json create dir script unstead cpx index html
+		`${dirs.src}/index.${mode}.html`,
 	];
 
 	filesPaths.forEach((path) => {

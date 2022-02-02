@@ -1,6 +1,6 @@
 {
 	"name": "systemjs-babel-es6-vue",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",
@@ -21,12 +21,13 @@
 		"lint": "eslint **/*.js",
 		"esm-copyf": "rm -rf dist && mkdir dist && node -r esm ./map-packages.js --mode esm",
 		"esm-src": "babel src --out-dir dist --ignore **/*.spec.js --config-file ./babel.esm.json",
-		"esm-build": "npm run esm-copyf && npm run esm-src",
+		"esm-build": "npm run esm-copyf && npm run esm-src && npm run css-resolve",
 		"esm-www": "node -r esm ./express/serve-static.js --defPageFileName index.esm.html",
 		"sys-copyf": "rm -rf dist && mkdir dist && node -r esm ./map-packages.js --mode system",
 		"sys-src": "babel src --out-dir dist --ignore **/*.spec.js --config-file ./babel.systemjs.json",
-		"sys-build": "npm run sys-copyf && npm run sys-src && npm run min-js",
+		"sys-build": "npm run sys-copyf && npm run sys-src && npm run min-js && npm run css-resolve",
 		"sys-www": "node -r esm ./express/serve-static.js --defPageFileName index.system.html",
+		"css-resolve": "node -r esm ./tsconfig-paths-resolver.js --config-file ./resolve-css.config.json",
 		"min-js": "minify-all-js ./dist",
 		"test": "set NODE_ENV=envJest&&node -r esm ./node_modules/jest/bin/jest.js --runInBand --no-cache",
 		"clj": "jest --clearCache"
@@ -36,8 +37,11 @@
 		"bluebird": "3.7.2",
 		"esm": "3.2.25",
 		"express": "4.17.2",
+		"find-root": "1.1.0",
 		"mustache": "4.2.0",
 		"minify-all-js": "0.1.9",
+		"parse-gitignore": "1.0.1",
+		"readdirp": "3.6.0",
 		"systemjs": "6.12.1",
 		"vue": "2.6.14",
 		"whatwg-fetch": "3.6.2"

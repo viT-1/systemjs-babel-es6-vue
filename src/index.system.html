@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script type="systemjs-importmap" src="importmap.system.json"></script>
 		<script>
 			if (typeof Promise === 'undefined')
@@ -10,7 +11,7 @@
 		  </script>
 		<script src="https://cdn.jsdelivr.net/npm/systemjs@{{systemjs}}/dist/system.min.js"></script>
 	</head>
-	<body>
+	<body iam-themes="thm-simple-colors">
 		<div id="app-vue">
 			Greet to <input v-model="greeterTarget" type="text" />
 			<greeter-h :target="greeterTarget"></greeter-h>

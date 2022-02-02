@@ -1,6 +1,6 @@
 ## tsconfig and importmap
 Easy standardized configuration in this configuration hell of custom plugins.
-tsconfig is used to define project aliases to folders (even to single file).
+tsconfig is used to define project aliases to folders (even to single file). [Why aliases](https://stephencharlesweiss.com/typescript-absolute-imports-aliases)?
 importmap is used to resolve imports to get paths of cdns for js libraries.
 
 importmaps are fixed with package.json dependencies versions with [mustache.render](https://github.com/viT-1/systemjs-babel-es6-vue/blob/06d7265961464c4c27876d3f5e0af9230bec013a/map-packages.js#L19) and used to resolve (rewrite names to uri paths) modules
@@ -38,12 +38,32 @@ imports:
 
 ## LintHtml
 
+## CSS @import not tsconfig paths but aliases
+Nowadays is very popular CSS-in-JS, it is not our case (Babel plugins for CSS aren't suitable).
+This project use classic practice without importing css files into js.
+- [css-aliases](https://www.npmjs.com/package/css-aliases) only to get resolved path, not inlining files content.
+- [css-import-resolve](https://csstools.github.io/css-import-resolve/)?
+- [postcss-import-alias-resolver](https://www.npmjs.com/package/postcss-import-alias-resolver)
+
+But I don't need another config "aliases" format, I need tsconfig paths support!
+For `*.css` files with `@import` tsconfig paths I made utility script `tsconfig-path-resolver.js` based on:
+- [arg]() for cli set config path
+- [find-root]() for utility paths independence
+- [readdirp]() to get all paths by file extension mask
+- [parse-gitignore]() to filter out readdirp
+- [tsconfig-paths]() for resolving paths by tsconfig settings
+Utility isn't inlining content from resolved path files, only paths rewrited.
+
 ## Minify
 This project isn't used any bundlers, all steps realised as npm scripts. Therefore, separate core modules are used for minifying.
 - JS: [minify-all-js](https://www.npmjs.com/package/minify-all-js) based on [terser](https://www.npmjs.com/package/terser) & [node-minify](https://www.npmjs.com/package/@node-minify/core) for recursive files iteration, which [is not supported by terser](https://github.com/terser/terser/issues/544#issuecomment-626350611) nowadays.
-- CSS: [csso](https://www.npmjs.com/package/csso)
-- StylusCSS: I like possibilities of [inbrowser transforming](https://stylus-lang.com/try.html) with [Stylus](https://www.npmjs.com/package/stylus) and don't like to make CSS syntax so complex like JS do. Stylus [has glob import](https://github.com/stylus/stylus/issues/1711#issuecomment-164995761) and can [compress StylusCSS](https://github.com/stylus/stylus/issues/2354) but [only for](https://github.com/stylus/stylus/issues/2154#issuecomment-203168846) `*.styl` files configured with [CSSO plugin](https://github.com/stylus/stylus/issues/2318#issuecomment-319385404). Another (modern) solution is [PostCSS](https://www.npmjs.com/package/postcss-cli) which has these two abilities too.
+- CSS: optimizer [csso](https://www.npmjs.com/package/csso), optimizer & inliner [clean-css](https://www.npmjs.com/package/clean-css). Both have cli.
+- StylusCSS: I like possibilities of [inbrowser transforming](https://stylus-lang.com/try.html) with [Stylus](https://www.npmjs.com/package/stylus) and don't like to make CSS syntax so complex like JS do. Stylus [has glob import](https://github.com/stylus/stylus/issues/1711#issuecomment-164995761) and can [compress StylusCSS](https://github.com/stylus/stylus/issues/2354) but [only for](https://github.com/stylus/stylus/issues/2154#issuecomment-203168846) `*.styl` files configured with [CSSO plugin](https://github.com/stylus/stylus/issues/2318#issuecomment-319385404). Another (modern) solution is [PostCSS](https://www.npmjs.com/package/postcss-cli) which has these two abilities too. By the way, Stylus [resolver is not extensionable](https://github.com/stylus/stylus/issues/2039) :(
 - In complex may be used [suggested by terser issue](https://github.com/terser/terser/issues/544#issuecomment-626350611) solution: [ucompress](https://github.com/WebReflection/ucompress)
+
+## CSS code conventions
+Not using scoped CSS, prior to BEM methodology in [iAMCss interpretation](https://vit-1.github.io/iAMcss-samples/).
+Native [CSS-variables](https://dev.to/idoshamun/theming-with-css-variables-322f) used with [iAMCss theming](https://github.com/viT-1/iAMcss/blob/master/styleguide.md#%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80-%D1%82%D0%B5%D0%BC%D1%8B-skin--view) ([theming live demo](https://vit-1.github.io/iAMcss-samples/v3/aria-collapsable/)) and [iAMCss naming](https://github.com/viT-1/iAMcss/blob/master/v3/styleguide.md#%D0%B8%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81-iam-%D0%B0%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%BE%D0%B2). CSSO [about variables](https://github.com/css/csso/issues/443).
 
 ## No need for project but peer dependencies =(
 - [vue-template-compiler](https://github.com/vuejs/vue-test-utils/issues/1399#issuecomment-1023985291). This project isn't used .vue files...

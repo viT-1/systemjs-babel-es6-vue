@@ -1,0 +1,8 @@
+{
+	"filesFilter": ["*.{css,styl,less}"],
+	"filesPathRoot": "src",
+	"outFilesPathRoot": "dist",
+	"placeOpens": "@import '",
+	"placeCloses": "';",
+	"tsconfigPath": "tsconfig.json"
+}

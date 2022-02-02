@@ -1,0 +1,13 @@
+/* #region greeter-h */
+/* #region greeter-h default variables with provocative settings if using without iam-themes schemas */
+:root {
+	--greeter-h-font-color: olive;
+	--greeter-h-font-size: 10px;
+}
+/* #endregion greeter-h default variables */
+
+[iam-greeter-h] {
+	color: var(--greeter-h-font-color);
+	font-size: var(--greeter-h-font-size);
+}
+/* #endregion greeter-h */

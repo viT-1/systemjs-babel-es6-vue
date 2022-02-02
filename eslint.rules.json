@@ -1,6 +1,5 @@
 {
 	"rules": {
-		"brace-style": ["error", "stroustrup"],
 		"comma-dangle": ["error", "always-multiline"],
 		"indent": ["error", "tab"],
 		"no-trailing-spaces": "error",

@@ -38,20 +38,21 @@ imports:
 
 ## LintHtml
 
-## CSS @import not tsconfig paths but aliases
+## CSS @import paths resolving
 Nowadays is very popular CSS-in-JS, it is not our case (Babel plugins for CSS aren't suitable).
 This project use classic practice without importing css files into js.
+Alias solutions (isn't used):
 - [css-aliases](https://www.npmjs.com/package/css-aliases) only to get resolved path, not inlining files content.
 - [css-import-resolve](https://csstools.github.io/css-import-resolve/)?
 - [postcss-import-alias-resolver](https://www.npmjs.com/package/postcss-import-alias-resolver)
 
 But I don't need another config "aliases" format, I need tsconfig paths support!
 For `*.css` files with `@import` tsconfig paths I made utility script `tsconfig-path-resolver.js` based on:
-- [arg]() for cli set config path
-- [find-root]() for utility paths independence
-- [readdirp]() to get all paths by file extension mask
-- [parse-gitignore]() to filter out readdirp
-- [tsconfig-paths]() for resolving paths by tsconfig settings
+- [arg](https://www.npmjs.com/package/arg) for cli set config path
+- [find-root](https://www.npmjs.com/package/find-root) for utility paths independence
+- [readdirp](https://www.npmjs.com/package/readdirp) to get all paths by file extension mask
+- [parse-gitignore](https://www.npmjs.com/package/parse-gitignore) to filter out readdirp
+- [tsconfig-paths](https://www.npmjs.com/package/tsconfig-paths) for resolving paths by tsconfig settings
 Utility isn't inlining content from resolved path files, only paths rewrited.
 
 ## Minify

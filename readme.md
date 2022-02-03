@@ -50,11 +50,12 @@ Alias solutions (isn't used):
 - [postcss-import-alias-resolver](https://www.npmjs.com/package/postcss-import-alias-resolver)
 
 But I don't need another config "aliases" format, I need tsconfig paths support!
+Found tsconfig format compatible solution for sass (but I don't use SASS here): [sass-extended-importer](https://github.com/wessberg/sass-extended-importer#path-mappingaliasing).
+
 For `*.css` files with `@import` tsconfig paths I made utility script `tsconfig-path-resolver.js` based on:
 - [arg](https://www.npmjs.com/package/arg) for cli set config path;
 - [find-root](https://www.npmjs.com/package/find-root) for utility paths independence;
 - [readdirp](https://www.npmjs.com/package/readdirp) to get all paths by file extension mask;
-- [parse-gitignore](https://www.npmjs.com/package/parse-gitignore) to filter out readdirp;
 - [tsconfig-paths](https://www.npmjs.com/package/tsconfig-paths) for resolving paths by tsconfig settings.
 Utility isn't inlining content from resolved path files, only paths rewrited.
 

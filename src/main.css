@@ -1,3 +1,10 @@
 @import '#common/greeter-h/greeter-h.css';
-@import './something.styl';
-@import '~/inroot.less';
+
+:root {
+	--check-var: orange;
+}
+/* #region main */
+[iam-main-h] {
+	color: var(--check-var);
+}
+/* #endregion main */

@@ -23,7 +23,9 @@ const {
 
 // paths & patterns in utilCofig json are relative to package.json directory
 // tsconfig-path-resolver can be placed into any child folder in project
-const pathsDir = findRoot(utilConfigDirPath); // shoud it be configurated to another way: relative to config?
+// shoud it be configurated to another way: relative to config?
+const pathsDir = findRoot(utilConfigDirPath);
+
 const pathRootForRegex = path.join(pathsDir, filesPathRoot);
 const pathToTsconfigFile = path.join(pathsDir, tsconfigPath); // TODO check for incorrect input
 
@@ -45,10 +47,10 @@ readdirp(path.resolve(pathRootForRegex), {
 	let contentIsChanged = false;
 	const newContent = fileContent.replace(new RegExp(regXpattern, 'gm'), (match, gr1, gr2) => {
 		// related problem with baseUrl: https://github.com/dividab/tsconfig-paths/issues/190
-		let mayBeResolvedPath = MatchPaths(gr2);
+		const mayBeResolvedPath = MatchPaths(gr2);
 		if (typeof mayBeResolvedPath !== 'undefined') {
 			contentIsChanged = true;
-			nFilesChanged++;
+			nFilesChanged += 1;
 
 			// make relative to current fileFullPath
 			let relativeResolvedPath = path.relative(path.dirname(fileFullPath), mayBeResolvedPath);
@@ -67,8 +69,8 @@ readdirp(path.resolve(pathRootForRegex), {
 	if (contentIsChanged || ((filesPathRoot !== outFilesPathRoot) && !existsSync(pathFileToWrite))) {
 		// console.log(`replaced ${entry.path} with:`, newContent);
 		writeFileSync(pathFileToWrite, newContent);
-		nFilesWritten++;
+		nFilesWritten += 1;
 	}
 })
-.on('end', () => console.log(`tsconfig-paths-resolver:
+	.on('end', () => console.log(`tsconfig-paths-resolver:
 Files written: ${nFilesWritten}. And ${nFilesChanged} of them with paths resolved`));

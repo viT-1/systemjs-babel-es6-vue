@@ -1,8 +1,8 @@
 import arg from 'arg';
 import { readFileSync, writeFileSync } from 'fs';
+import mustache from 'mustache';
 
 import { dependencies } from './package';
-import mustache from 'mustache';
 
 // TODO: app.config.json
 const dirs = {
@@ -24,7 +24,6 @@ if (mode) {
 		const output = mustache.render(readFileSync(path).toString(), dependencies);
 		writeFileSync(path.replace(dirs.src, dirs.dest), output);
 	});
-}
-else {
-	new Error(`Set ${modeKey} please!`);
+} else {
+	throw Error(`Set ${modeKey} please!`);
 }

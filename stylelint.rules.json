@@ -1,0 +1,7 @@
+{
+	"rules": {
+		"indentation": "tab",
+		"selector-attribute-operator-space-after": "always",
+		"selector-attribute-operator-space-before": "always"
+	}
+}

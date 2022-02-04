@@ -38,8 +38,6 @@ imports:
 
 ## LintHtml
 
-## CSS Linting
-
 ## CSS @import paths resolving
 Nowadays is very popular CSS-in-JS, it is not our case (Babel plugins for CSS aren't suitable).
 This project use classic practice without importing css files into js.
@@ -63,16 +61,39 @@ Utility isn't inlining content from resolved path files, only paths rewrited.
 This project isn't used any bundlers, all steps realised as npm scripts. Therefore, separate core modules are used for minifying.
 - JS: [minify-all-js](https://www.npmjs.com/package/minify-all-js) based on [terser](https://www.npmjs.com/package/terser) & [node-minify](https://www.npmjs.com/package/@node-minify/core) for recursive files iteration, which [is not supported by terser](https://github.com/terser/terser/issues/544#issuecomment-626350611) nowadays.
 - CSS: This project is used optimizer & inliner [clean-css](https://www.npmjs.com/package/clean-css).
-- StylusCSS: I like possibilities of [inbrowser transforming](https://stylus-lang.com/try.html) with [Stylus](https://www.npmjs.com/package/stylus) and don't like to make CSS syntax so complex like JS do. Stylus [has glob import](https://github.com/stylus/stylus/issues/1711#issuecomment-164995761) and can [compress StylusCSS](https://github.com/stylus/stylus/issues/2354) but [only for](https://github.com/stylus/stylus/issues/2154#issuecomment-203168846) `*.styl` files configured with [CSSO plugin](https://github.com/stylus/stylus/issues/2318#issuecomment-319385404). Another (modern) solution is [PostCSS](https://www.npmjs.com/package/postcss-cli) which has these two abilities too. By the way, Stylus [resolver is not extensionable](https://github.com/stylus/stylus/issues/2039) :(
+- StylusCSS: I like possibilities of [inbrowser transforming](https://stylus-lang.com/try.html) with [Stylus](https://www.npmjs.com/package/stylus) and don't like to make CSS syntax [so complex](https://github.com/postcss/postcss-nested) like JS do. Stylus [has glob import](https://github.com/stylus/stylus/issues/1711#issuecomment-164995761) and can [compress StylusCSS](https://github.com/stylus/stylus/issues/2354) but [only for](https://github.com/stylus/stylus/issues/2154#issuecomment-203168846) `*.styl` files configured with [CSSO plugin](https://github.com/stylus/stylus/issues/2318#issuecomment-319385404). Another (modern) solution is [PostCSS](https://www.npmjs.com/package/postcss-cli) which has these two abilities too. By the way, Stylus [resolver is not extensionable](https://github.com/stylus/stylus/issues/2039) :(
 - In complex may be used [suggested by terser issue](https://github.com/terser/terser/issues/544#issuecomment-626350611) solution: [ucompress](https://github.com/WebReflection/ucompress)
 
 ## CSS code conventions
 Not using scoped CSS, prior to BEM methodology in [iAMCss interpretation](https://vit-1.github.io/iAMcss-samples/) (also [see main.css](https://github.com/viT-1/systemjs-babel-es6-vue/blob/main/src/main.css)).
 Native [CSS-variables](https://dev.to/idoshamun/theming-with-css-variables-322f) used with [iAMCss theming](https://github.com/viT-1/iAMcss/blob/master/styleguide.md#%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80-%D1%82%D0%B5%D0%BC%D1%8B-skin--view) ([theming live demo](https://vit-1.github.io/iAMcss-samples/v3/aria-collapsable/)) and [iAMCss naming](https://github.com/viT-1/iAMcss/blob/master/v3/styleguide.md#%D0%B8%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81-iam-%D0%B0%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%BE%D0%B2). CSSO [about variables](https://github.com/css/csso/issues/443).
 
+## CSS styleguides
+What recommendations to complement BEM/iAMCss, do we have?
+- [mdcss](https://github.com/csstools/mdcss) comments convention (as `*.md` files format)
+- [CSS Guidelines](https://cssguidelin.es) by [Harry Roberts](https://csswizardry.com/work/)
+- [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
+- [@mdo's codeguide CSS](https://codeguide.co/#css)
+- [Think Up](https://github.com/ThinkUpLLC/ThinkUp/wiki/Code-Style-Guide:-CSS)
+- [GitHub primer SCSS](https://primer.style/css/principles/scss)
+- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) [boilerplate](https://www.npmjs.com/package/itcss)
+- [SMACSS](http://smacss.com/)
+
+## CSS Linting
+Based on [trends](https://www.npmtrends.com/csslint-vs-sass-lint-vs-stylelint), [Stylelint](https://www.npmjs.com/package/stylelint) has no competitors!
+Bunch of configs [favorited here](https://github.com/stylelint/awesome-stylelint#configs), some of them:
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) checks Google styleguide, @mdo's codeguide and Airbnb's Styleguide.
+- [stylelint-no-unresolved-module](https://github.com/niksy/stylelint-no-unresolved-module) to check urls of @import keywords
+- [stylelint-a11y](https://github.com/YozhikM/stylelint-a11y) check the [accessibility of your CSS](https://www.w3.org/WAI/standards-guidelines/wcag/) for users.
+- [GitHub primer](https://github.com/primer/stylelint-config)
+- [stylelint-itcss](https://www.npmjs.com/package/stylelint-itcss) for ITCSS
+- [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines) instead of using [sass-lint](https://www.npmjs.com/package/sass-lint)
+- [stylelint-plugin-stylus](https://github.com/ota-meshi/stylelint-plugin-stylus)
+- [postcss-bem-linter](https://www.npmjs.com/package/postcss-bem-linter)
+
 ## IE11
 This browser isn't supported es-modules from the box, therefeore this project is used two deploying ways: esm-build and sys-build ([SystemJS](https://github.com/systemjs/systemjs)).
-Also is not supported [css-variables](https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties), therefore this project is used [ie11-custom-properties](https://www.npmjs.com/package/ie11-custom-properties) polyfill with known bugs: [92](https://github.com/nuxodin/ie11CustomProperties/issues/92) (inline @import files workaround) and IE can't use [initial](https://developer.mozilla.org/en-US/docs/Web/CSS/initial) value.
+Also is not supported [css-variables](https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties), therefore this project is used [ie11-custom-properties](https://www.npmjs.com/package/ie11-custom-properties) polyfill with known bugs: [92](https://github.com/nuxodin/ie11CustomProperties/issues/92) (inline @import files workaround) and IE can't use [initial](https://developer.mozilla.org/en-US/docs/Web/CSS/initial) value (workaround [postcss-initial](https://github.com/maximkoretskiy/postcss-initial)).
 
 ## No need for project but peer dependencies =(
 - [vue-template-compiler](https://github.com/vuejs/vue-test-utils/issues/1399#issuecomment-1023985291). This project isn't used .vue files...

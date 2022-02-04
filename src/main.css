@@ -1,10 +1,36 @@
-@import '#common/greeter-h/greeter-h.css';
+/* "iam-" prefixes should be used in attributes but not file/dirnames */
+/* #region css-only "components" (not templated) */
+@import '#common/h/h.css';
+/* #endregion css-only "components" (not templated) */
 
+/* #region components */
+@import '#common/greeter-h/greeter-h.css';
+/* #endregion components */
+
+/* #region themes */
+@import '~/themes/thm-simple.css';
+/* #endregion themes */
+
+/* module defaults */
 :root {
-	--check-var: orange;
+	--main-h-font-color: orange;
 }
+
 /* #region main */
 [iam-main-h] {
-	color: var(--check-var);
+	color: var(--main-h-font-color);
 }
+
+/*
+	incorrect redefine !!! css-only h "component" in this specific main.css
+	It should be defined in common/h/h.css and pasted here as @import region css-only "component"
+	therefore will be redefined by region themes first
+	and then redefined [iam-main-h] without css-specificy increasing!
+*/
+/*
+[iam-h] {
+	color: indigo;
+}
+*/
+
 /* #endregion main */

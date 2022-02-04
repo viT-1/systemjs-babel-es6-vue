@@ -67,8 +67,12 @@ This project isn't used any bundlers, all steps realised as npm scripts. Therefo
 - In complex may be used [suggested by terser issue](https://github.com/terser/terser/issues/544#issuecomment-626350611) solution: [ucompress](https://github.com/WebReflection/ucompress)
 
 ## CSS code conventions
-Not using scoped CSS, prior to BEM methodology in [iAMCss interpretation](https://vit-1.github.io/iAMcss-samples/).
+Not using scoped CSS, prior to BEM methodology in [iAMCss interpretation](https://vit-1.github.io/iAMcss-samples/) (also [see main.css](https://github.com/viT-1/systemjs-babel-es6-vue/blob/main/src/main.css)).
 Native [CSS-variables](https://dev.to/idoshamun/theming-with-css-variables-322f) used with [iAMCss theming](https://github.com/viT-1/iAMcss/blob/master/styleguide.md#%D0%BC%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80-%D1%82%D0%B5%D0%BC%D1%8B-skin--view) ([theming live demo](https://vit-1.github.io/iAMcss-samples/v3/aria-collapsable/)) and [iAMCss naming](https://github.com/viT-1/iAMcss/blob/master/v3/styleguide.md#%D0%B8%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81-iam-%D0%B0%D1%82%D1%80%D0%B8%D0%B1%D1%83%D1%82%D0%BE%D0%B2). CSSO [about variables](https://github.com/css/csso/issues/443).
+
+## IE11
+This browser isn't supported es-modules from the box, therefeore this project is used two deploying ways: esm-build and sys-build ([SystemJS](https://github.com/systemjs/systemjs)).
+Also is not supported [css-variables](https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties), therefore this project is used [ie11-custom-properties](https://www.npmjs.com/package/ie11-custom-properties) polyfill with known bugs: [92](https://github.com/nuxodin/ie11CustomProperties/issues/92) (inline @import files workaround) and IE can't use [initial](https://developer.mozilla.org/en-US/docs/Web/CSS/initial) value.
 
 ## No need for project but peer dependencies =(
 - [vue-template-compiler](https://github.com/vuejs/vue-test-utils/issues/1399#issuecomment-1023985291). This project isn't used .vue files...

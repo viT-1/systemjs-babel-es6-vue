@@ -1,6 +1,6 @@
 {
 	"name": "systemjs-babel-es6-vue",
-	"version": "2.3.0",
+	"version": "2.3.1",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",
@@ -21,7 +21,7 @@
 		"lint": "eslint **/*.js",
 		"esm-copyf": "rm -rf dist && mkdir dist && node -r esm ./map-packages.js --mode esm",
 		"esm-src": "babel src --out-dir dist --ignore **/*.spec.js --config-file ./babel.esm.json",
-		"esm-build": "npm run esm-copyf && npm run esm-src && npm run css-resolve && npm run min-css",
+		"esm-build": "npm run esm-copyf && npm run esm-src && npm run css-resolve",
 		"esm-www": "node -r esm ./express/serve-static.js --defPageFileName index.esm.html",
 		"sys-copyf": "rm -rf dist && mkdir dist && node -r esm ./map-packages.js --mode system",
 		"sys-src": "babel src --out-dir dist --ignore **/*.spec.js --config-file ./babel.systemjs.json",

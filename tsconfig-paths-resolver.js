@@ -1,4 +1,9 @@
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import {
+	existsSync,
+	mkdirSync,
+	readFileSync,
+	writeFileSync,
+} from 'fs';
 import path from 'path';
 import findRoot from 'find-root';
 import readdirp from 'readdirp';
@@ -67,6 +72,11 @@ readdirp(path.resolve(pathRootForRegex), {
 
 	const pathFileToWrite = path.join(pathsDir, outFilesPathRoot, entry.path);
 	if (contentIsChanged || ((filesPathRoot !== outFilesPathRoot) && !existsSync(pathFileToWrite))) {
+		const pathDirToWrite = path.dirname(pathFileToWrite);
+		if (!existsSync(pathDirToWrite)) {
+			mkdirSync(pathDirToWrite, { recursive: true });
+		}
+
 		// console.log(`replaced ${entry.path} with:`, newContent);
 		writeFileSync(pathFileToWrite, newContent);
 		nFilesWritten += 1;

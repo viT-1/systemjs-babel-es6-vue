@@ -15,12 +15,12 @@
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/systemjs@{{systemjs}}/dist/system.min.js"></script>
 	</head>
-	<body iam-themes="thm-simple-colors" iam-main>
+	<body iam-themes="thm-simple" iam-main>
 		<div id="app-vue">
 			Greet to <input v-model="greeterTarget" type="text" />
 			<greeter-h :target="greeterTarget"></greeter-h>
 		</div>
-		<h1 iam-main-h iam-h="h1">Red pill or SystemJs pill?</h1>
+		<h1 iam-main-h="h1" iam-h="iam-main h1">Red pill or SystemJs pill?</h1>
 		<script>
 			System.import('./main.js').then(function(main) {
 				main.run();	

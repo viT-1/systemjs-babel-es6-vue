@@ -1,0 +1,10 @@
+/* #region h */
+/* module defaults */
+:root {
+	--h-font-color: indigo;
+}
+
+[iam-h] {
+	color: var(--h-font-color);
+}
+/* #endregion h */

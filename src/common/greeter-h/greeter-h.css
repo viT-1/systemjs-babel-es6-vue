@@ -1,13 +1,22 @@
 /* #region greeter-h */
-/* #region greeter-h default variables with provocative settings if using without iam-themes schemas */
+/* module defaults
+with provocative settings if using without iam-themes schemas */
 :root {
 	--greeter-h-font-color: olive;
-	--greeter-h-font-size: 10px;
+	--greeter-h-font-size-1: 10px;
 }
-/* #endregion greeter-h default variables */
+
+/*
+	iAMCss 3.1.2 https://github.com/viT-1/iAMcss/blob/master/v3/styleguide.md
+	Should be defined only component specific attributes (iam-greeter-h), not global (iam-h)!
+	But global attributes should be set as mix in template
+*/
 
 [iam-greeter-h] {
 	color: var(--greeter-h-font-color);
-	font-size: var(--greeter-h-font-size);
+}
+
+[iam-greeter-h ~= h1] {
+	font-size: var(--greeter-h-font-size-1);
 }
 /* #endregion greeter-h */

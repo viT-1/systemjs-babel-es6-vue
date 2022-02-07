@@ -76,10 +76,10 @@ What recommendations to complement BEM/iAMCss, do we have?
 - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 - [GitHub primer](https://primer.style/css/principles/scss) for SCSS
 - [Idiomatic CSS](https://github.com/necolas/idiomatic-css) by [@necolas](https://github.com/necolas/) last updated 2015.02.06
-
 - [Code smells](https://csswizardry.com/2012/11/code-smells-in-css/) in CSS
+- [My opinion](http://vit-1.blogspot.com/2021/11/tailwind-css-bem.html) (rus) to avoid TailwindCSS, because it is [bad](https://www.aleksandrhovhannisyan.com/blog/why-i-dont-like-tailwind-css/) (eng) [AtomicCSS](https://www.aleksandrhovhannisyan.com/blog/why-i-dont-like-tailwind-css/) reincarnation 
 - [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) [tailwindy](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/#separate-spacing-system-from-components) :vomiting_face: [boilerplate](https://www.npmjs.com/package/itcss)
-- [SMACSS](http://smacss.com/) 2012.08.21 A lot of conventions don't make sense with iAMCss!
+- [SMACSS](http://smacss.com/) 2012.08.21. A lot of conventions don't make sense with iAMCss!
 
 ## CSS Linting
 Based on [trends](https://www.npmtrends.com/csslint-vs-sass-lint-vs-stylelint), [Stylelint](https://www.npmjs.com/package/stylelint) has no competitors!
@@ -87,7 +87,6 @@ Bunch of configs [favorited here](https://github.com/stylelint/awesome-stylelint
 - [stylelint-a11y](https://github.com/YozhikM/stylelint-a11y) check the [accessibility of your CSS](https://www.w3.org/WAI/standards-guidelines/wcag/) for users.
 - [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) checks Google styleguide, @mdo's codeguide and Airbnb's Styleguide.
 - [stylelint-no-unresolved-module](https://github.com/niksy/stylelint-no-unresolved-module) to check urls of @import keywords with webpack alias feature.
-- [stylelint-order](https://www.npmjs.com/package/stylelint-order) of CSS properties
 - [GitHub primer](https://github.com/primer/stylelint-config) for SASS
 - [stylelint-config-idiomatic-order](https://www.npmjs.com/package/stylelint-config-idiomatic-order) or [stylelint-config-property-sort-order-smacss](https://www.npmjs.com/package/stylelint-config-property-sort-order-smacss)
 - [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines) for CSS Guidelin.es instead of using [sass-lint](https://www.npmjs.com/package/sass-lint)

@@ -70,26 +70,30 @@ Native [CSS-variables](https://dev.to/idoshamun/theming-with-css-variables-322f)
 
 ## CSS styleguides
 What recommendations to complement BEM/iAMCss, do we have?
-- [mdcss](https://github.com/csstools/mdcss) comments convention (as `*.md` files format)
-- [CSS Guidelines](https://cssguidelin.es) by [Harry Roberts](https://csswizardry.com/work/)
+- [WAI WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/) accessibility of your CSS
+- [mdcss](https://github.com/csstools/mdcss) comments convention (as `*.md` files format), can be used as a plugin for postcss or gulp
+- [CSS Guidelines](https://cssguidelin.es) 2.2.5 by [Harry Roberts](https://csswizardry.com/work/), 28.12.2020. A lot of conventions don't make sense with iAMCss! 
 - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
-- [@mdo's codeguide CSS](https://codeguide.co/#css)
-- [Think Up](https://github.com/ThinkUpLLC/ThinkUp/wiki/Code-Style-Guide:-CSS)
-- [GitHub primer SCSS](https://primer.style/css/principles/scss)
-- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) [boilerplate](https://www.npmjs.com/package/itcss)
-- [SMACSS](http://smacss.com/)
+- [GitHub primer](https://primer.style/css/principles/scss) for SCSS
+- [Idiomatic CSS](https://github.com/necolas/idiomatic-css) by [@necolas](https://github.com/necolas/) last updated 2015.02.06
+
+- [Code smells](https://csswizardry.com/2012/11/code-smells-in-css/) in CSS
+- [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) [tailwindy](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/#separate-spacing-system-from-components) :vomiting_face: [boilerplate](https://www.npmjs.com/package/itcss)
+- [SMACSS](http://smacss.com/) 2012.08.21 A lot of conventions don't make sense with iAMCss!
 
 ## CSS Linting
 Based on [trends](https://www.npmtrends.com/csslint-vs-sass-lint-vs-stylelint), [Stylelint](https://www.npmjs.com/package/stylelint) has no competitors!
 Bunch of configs [favorited here](https://github.com/stylelint/awesome-stylelint#configs), some of them:
-- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) checks Google styleguide, @mdo's codeguide and Airbnb's Styleguide.
-- [stylelint-no-unresolved-module](https://github.com/niksy/stylelint-no-unresolved-module) to check urls of @import keywords
 - [stylelint-a11y](https://github.com/YozhikM/stylelint-a11y) check the [accessibility of your CSS](https://www.w3.org/WAI/standards-guidelines/wcag/) for users.
-- [GitHub primer](https://github.com/primer/stylelint-config)
-- [stylelint-itcss](https://www.npmjs.com/package/stylelint-itcss) for ITCSS
-- [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines) instead of using [sass-lint](https://www.npmjs.com/package/sass-lint)
+- [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) checks Google styleguide, @mdo's codeguide and Airbnb's Styleguide.
+- [stylelint-no-unresolved-module](https://github.com/niksy/stylelint-no-unresolved-module) to check urls of @import keywords with webpack alias feature.
+- [stylelint-order](https://www.npmjs.com/package/stylelint-order) of CSS properties
+- [GitHub primer](https://github.com/primer/stylelint-config) for SASS
+- [stylelint-config-idiomatic-order](https://www.npmjs.com/package/stylelint-config-idiomatic-order) or [stylelint-config-property-sort-order-smacss](https://www.npmjs.com/package/stylelint-config-property-sort-order-smacss)
+- [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines) for CSS Guidelin.es instead of using [sass-lint](https://www.npmjs.com/package/sass-lint)
 - [stylelint-plugin-stylus](https://github.com/ota-meshi/stylelint-plugin-stylus)
 - [postcss-bem-linter](https://www.npmjs.com/package/postcss-bem-linter)
+- [stylelint-itcss](https://www.npmjs.com/package/stylelint-itcss) for [tailwindy](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/#separate-spacing-system-from-components) ITCSS :vomiting_face:
 
 ## IE11
 This browser isn't supported es-modules from the box, therefeore this project is used two deploying ways: esm-build and sys-build ([SystemJS](https://github.com/systemjs/systemjs)).

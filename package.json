@@ -1,6 +1,6 @@
 {
 	"name": "systemjs-babel-es6-vue",
-	"version": "2.4.0",
+	"version": "2.4.1",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",
@@ -74,6 +74,7 @@
 		"eslint-import-resolver-typescript": "2.5.0",
 		"stylelint": "14.3.0",
 		"stylelint-config-standard": "24.0.0",
+		"stylelint-config-idiomatic-order": "8.1.0",
 		"@linthtml/linthtml": "0.8.4",
 		"@linthtml/linthtml-config-recommended": "0.1.0",
 		"@jest/globals": "27.4.6",
@@ -100,6 +101,10 @@
 		"verbose": false
 	},
 	"stylelint": {
-		"extends": ["stylelint-config-standard", "./stylelint.rules.json"]
+		"extends": [
+			"stylelint-config-standard",
+			"stylelint-config-idiomatic-order",
+			"./stylelint.rules.json"
+		]
 	}
 }

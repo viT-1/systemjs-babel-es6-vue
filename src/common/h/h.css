@@ -1,12 +1,30 @@
-/* #region h */
+/* #region "h" */
+/* #region "h > modifiers" */
+/* should define "local" variables (get "iam-" values outside) */
+[iam-h ~= "h1"] {
+	font-size: xx-large; /* fallback for browsers without css-vars */
 
-/* module defaults */
-:root {
-	--h-font-color: indigo;
+	/* local variables */
+	--h-font-color: var(--iam-h-font-color-1);
+	--h-font-size: var(--iam-h-font-size-1, xx-large);
 }
 
+[iam-h ~= "h2"] {
+	font-size: x-large; /* fallback for browsers without css-vars */
+
+	/* local variables */
+	--h-font-color: var(--iam-h-font-color-2);
+	--h-font-size: var(--iam-h-font-size-2, x-large);
+}
+/* #endregion "h > modifiers" */
+
+/* #region "h > index" selectors (any elements without modifiers, [iam-h-child] too) */
 [iam-h] {
-	color: var(--h-font-color);
-}
+	color: indigo; /* default as modifier independent fallback (can be preprocessor variable) */
 
-/* #endregion h */
+	/* --h-font-color may not be defined in any theme */
+	color: var(--h-font-color, var(--iam-h-font-color, indigo)); /* external redefine ability */
+	font-size: var(--h-font-size); /* contexted h1-h5 size */
+}
+/* #endregion "h > index" selectors */
+/* #endregion "h" */

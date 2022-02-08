@@ -2,28 +2,22 @@
 
 /* #region css-only "components" (not templated) */
 @import url("#common/h/h.css");
-
 /* #endregion css-only "components" (not templated) */
 
 /* #region components */
 @import url("#common/greeter-h/greeter-h.css");
-
 /* #endregion components */
 
 /* #region themes */
 @import url("~/themes/thm-simple.css");
-
 /* #endregion themes */
 
-/* module defaults */
-:root {
-	--main-h-font-color: orange;
-}
-
-/* #region main */
+/* #region "main > index" */
 [iam-main-h] {
-	color: var(--main-h-font-color);
+	color: orange; /* default as fallback */
+	color: var(--iam-main-h-font-color, orange); /* external redefine ability */
 }
+/* #endregion "main > index" */
 
 /*
 	incorrect redefine !!! css-only h "component" in this specific main.css
@@ -31,11 +25,8 @@
 	therefore will be redefined by region themes first
 	and then redefined [iam-main-h] without css-specificy increasing!
 */
-
 /*
 [iam-h] {
 	color: indigo;
 }
 */
-
-/* #endregion main */

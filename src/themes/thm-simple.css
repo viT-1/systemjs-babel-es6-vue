@@ -1,12 +1,18 @@
+/* theme should define interface "iam-" variables only */
 [iam-themes ~= "thm-simple"] {
-	/* #region main */
-	--main-h-font-color: black; /* IE can't use "initial" */
+	/* #region h */
+	--iam-h-font-color: blue;
+	--iam-h-font-size-1: 2.56em;
+	--iam-h-font-size-2: 1.28em;
+	/* #endregion h */
 
+	/* #region main */
+	/* IE can't use "initial" */
+	/* Unnecessary use varaible, because main-h mixed with h */
+	/* --iam-main-h-font-color: var(--iam-h-font-color); */
 	/* #endregion main */
 
-	/* #region greeter-h */
-	--greeter-h-font-color: green;
-	--greeter-h-font-size-1: xx-large; /* "initial" resets to default text size */
-
+	/* #region greeter-h use */
+	--iam-greeter-h-font-color: green;
 	/* #endregion greeter-h */
 }

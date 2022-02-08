@@ -1,24 +1,48 @@
-/* #region greeter-h */
-
-/* module defaults
-with provocative settings if using without iam-themes schemas */
-:root {
-	--greeter-h-font-color: olive;
-	--greeter-h-font-size-1: 10px;
-}
-
 /*
 	iAMCss 3.1.2 https://github.com/viT-1/iAMcss/blob/master/v3/styleguide.md
-	Should be defined only component specific attributes (iam-greeter-h), not global (iam-h)!
+	To avoid mistakes, you should define here only component specific attributes:
+	[iam-greeter-h], not global [iam-h ~= iam-greeter]!
 	But global attributes should be set as mix in template
+
+	CSS-variables values should be defined in theme files (may be undefined), not here.
+	Defaults defined as fallbacks for css-properties.
 */
+/* #region "iam-h > iam-greeter" */
+/* as worser way to define custom rules: less specific attribute (defined earlier) with dom context modificator */
+/* because you need other modificators with context modificator and thus can't use ~= */
+[iam-h ~= "iam-greeter"] {
+	/* if turned off these rules and theme redefined vars, we should have base color from iam-h mix */
+	color: olive; /* unnecessary fallback for browsers without css-vars - we have "iam-h" with same functionality */
 
-[iam-greeter-h] {
-	color: var(--greeter-h-font-color);
+	/* incorrect to use more specific variable in global attribute iam-h */
+	/* color: var(--greeter-h-font-color); */
 }
+/* #endregion "iam-h > iam-greeter" */
 
+/* #region "greeter-h" */
+/* #region "greeter-h > modifiers" */
 [iam-greeter-h ~= "h1"] {
-	font-size: var(--greeter-h-font-size-1);
-}
+	/* local variables */
+	--greeter-h-font-color: var(--iam-greeter-h-font-color-1);
 
-/* #endregion greeter-h */
+	/* --greeter-h-font-size: var(--iam-greeter-h-font-size-1); */
+
+	/* code smells: "incapsulation" principle is broken */
+	--greeter-h-font-size: var(--iam-greeter-h-font-size-1, var(--iam-h-font-size-1));
+}
+/* #endregion "greeter-h > modifiers" */
+
+/* #region "greeter-h > index" (any element without modifiers) */
+[iam-greeter-h] {
+	/* get themed color as separate h1-h5 colors, then common themed color, then fallback */
+	color: var(--greeter-h-font-color, var(--iam-greeter-h-font-color, olive));
+
+	/* unnecessary fallback for browsers without css-vars - we have "iam-h" with same functionality */
+	/* font-size: normal; */
+
+	/* if variable is undefined, [iam-h ~= h1] font-size also not set! (because same specificy overriding) */
+	/* comment out to use iam-h mixed & themed, otherwise size unset to regular text size */
+	font-size: var(--greeter-h-font-size, unset); /* fallback if h1-h5 sizes aren't set in themes */
+}
+/* #endregion "greeter-h > index" */
+/* #endregion "greeter-h" */

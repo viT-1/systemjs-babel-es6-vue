@@ -2,6 +2,13 @@
 	"rules": {
 		"indentation": "tab",
 		"selector-attribute-operator-space-after": "always",
-		"selector-attribute-operator-space-before": "always"
+		"selector-attribute-operator-space-before": "always",
+		"comment-empty-line-before": [
+			"always", {
+				"except": ["first-nested"],
+				"ignore": ["after-comment"],
+				"ignoreComments": ["/^#region/", "/^#endregion/"]
+			}
+		]
 	}
 }

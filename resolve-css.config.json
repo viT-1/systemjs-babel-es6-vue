@@ -2,7 +2,7 @@
 	"filesFilter": ["*.{css,styl,less}"],
 	"filesPathRoot": "src",
 	"outFilesPathRoot": "dist",
-	"placeOpens": "@import \"",
-	"placeCloses": "\";",
+	"placeOpens": "@import url\\(\"",
+	"placeCloses": "\"\\);",
 	"tsconfigPath": "tsconfig.json"
 }

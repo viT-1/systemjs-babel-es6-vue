@@ -50,24 +50,23 @@ readdirp(path.resolve(pathRootForRegex), {
 	const fileFullPath = path.join(pathRootForRegex, entry.path);
 	const fileContent = readFileSync(fileFullPath, 'utf8');
 	let contentIsChanged = false;
-	const newContent = fileContent.replace(new RegExp(regXpattern, 'gm'), (match, gr1, gr2) => {
+	const newContent = fileContent.replace(new RegExp(regXpattern, 'gm'), (match, sGroup1, sGroup2, sGroup3) => {
 		// related problem with baseUrl: https://github.com/dividab/tsconfig-paths/issues/190
-		const mayBeResolvedPath = MatchPaths(gr2);
+		let mayBeResolvedPath = MatchPaths(sGroup2);
+
 		if (typeof mayBeResolvedPath !== 'undefined') {
 			contentIsChanged = true;
 			nFilesChanged += 1;
 
 			// make relative to current fileFullPath
-			let relativeResolvedPath = path.relative(path.dirname(fileFullPath), mayBeResolvedPath);
-			relativeResolvedPath = relativeResolvedPath.replace(/\\/g, '/');
-
-			const resolvedPlace = `${placeOpens}${relativeResolvedPath}${placeCloses}`;
-			// console.log(path.basename(entry.path), match, `replaced to ${resolvedPlace}`);
-			return resolvedPlace;
+			const relativeResolvedPath = path.relative(path.dirname(fileFullPath), mayBeResolvedPath);
+			mayBeResolvedPath = relativeResolvedPath.replace(/\\/g, '/');
+			// console.log(path.basename(entry.path), match, `replaced to ${mayBeResolvedPath}`);
+		} else {
+			mayBeResolvedPath = sGroup2;
 		}
 
-		// no changed - change on same value
-		return `${placeOpens}${gr2}${placeCloses}`;
+		return `${sGroup1}${mayBeResolvedPath}${sGroup3}`;
 	});
 
 	const pathFileToWrite = path.join(pathsDir, outFilesPathRoot, entry.path);

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<title>ES modules Vue test</title>
 		<link rel="stylesheet" type="text/css" href="main.css" />
 	</head>
 	<body iam-themes="thm-simple" iam-main>
 		<div id="app-vue">
-			Greet to <input v-model="greeterTarget" type="text" />
+			<label for="set-greet-target-control">Greet to</label>
+			<input id="set-greet-target-control" v-model="greeterTarget" type="text" />
+
 			<greeter-h :target="greeterTarget"></greeter-h>
 		</div>
 		<h1 iam-main-h="h1" iam-h="iam-main h1">Esm pill or blue pill?</h1>

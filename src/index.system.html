@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<title>SystemJs Vue test</title>
 		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script type="systemjs-importmap" src="importmap.system.json"></script>
 		<script>
 			if (typeof Promise === 'undefined')
-				document.write('<script src="https://cdn.jsdelivr.net/npm/bluebird@{{bluebird}}/js/browser/bluebird.min.js"><\/script>');
+				document.write('<script src="https://cdn.jsdelivr.net/npm/'
+				+'bluebird@{{bluebird}}/js/browser/bluebird.min.js"><\/script>');
 			if (typeof fetch === 'undefined')
-				document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@{{whatwg-fetch}}/dist/fetch.umd.min.js"><\/script>');
+				document.write('<script src="https://cdn.jsdelivr.net/npm/'
+				+'whatwg-fetch@{{whatwg-fetch}}/dist/fetch.umd.min.js"><\/script>');
 		</script>
 		<script>
 			window.MSInputMethodContext && document.documentMode &&
-				document.write('<script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@{{ie11-custom-properties}}/ie11CustomProperties.min.js"><\x2fscript>');
+				document.write('<script src="https://cdn.jsdelivr.net/gh/'
+				+'nuxodin/ie11CustomProperties@{{ie11-custom-properties}}/'
+				+'ie11CustomProperties.min.js"><\x2fscript>');
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/systemjs@{{systemjs}}/dist/system.min.js"></script>
 	</head>
 	<body iam-themes="thm-simple" iam-main>
 		<div id="app-vue">
-			Greet to <input v-model="greeterTarget" type="text" />
+			<label for="set-greet-target-control">Greet to</label>
+			<input id="set-greet-target-control" v-model="greeterTarget" type="text" />
+
 			<greeter-h :target="greeterTarget"></greeter-h>
 		</div>
 		<h1 iam-main-h="h1" iam-h="iam-main h1">Red pill or SystemJs pill?</h1>

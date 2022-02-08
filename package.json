@@ -1,6 +1,6 @@
 {
 	"name": "systemjs-babel-es6-vue",
-	"version": "2.4.1",
+	"version": "2.4.2",
 	"description": "Vue with alias & ES modules but without bundlers Webpack/Rollup/ESbuild",
 	"keywords": [
 		"babel",
@@ -17,7 +17,7 @@
 		"url": "git://github.com/viT-1/systemjs-babel-es6-vue.git"
 	},
 	"scripts": {
-		"linth": "linthtml ./src/**/*.htmXXX",
+		"linth": "linthtml src/**/*.html",
 		"lint": "eslint **/*.js",
 		"lintc": "stylelint ./src/**/*.css",
 		"esm-copyf": "rm -rf dist && mkdir dist && node -r esm ./map-packages.js --mode esm",
@@ -105,6 +105,9 @@
 			"stylelint-config-standard",
 			"stylelint-config-idiomatic-order",
 			"./stylelint.rules.json"
+		],
+		"ignoreFiles": [
+			"./dist/**/*"
 		]
 	}
 }

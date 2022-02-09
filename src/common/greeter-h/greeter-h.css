@@ -12,7 +12,7 @@
 /* because you need other modificators with context modificator and thus can't use ~= */
 [iam-h ~= "iam-greeter"] {
 	/* if turned off these rules and theme redefined vars, we should have base color from iam-h mix */
-	color: olive; /* unnecessary fallback for browsers without css-vars - we have "iam-h" with same functionality */
+	/* color: olive; *//* unnecessary fallback for browsers without css-vars - we have "iam-h" with same functionality */
 
 	/* incorrect to use more specific variable in global attribute iam-h */
 	/* color: var(--greeter-h-font-color); */
@@ -25,24 +25,27 @@
 	/* local variables */
 	--greeter-h-font-color: var(--iam-greeter-h-font-color-1);
 
-	/* --greeter-h-font-size: var(--iam-greeter-h-font-size-1); */
-
-	/* code smells: "incapsulation" principle is broken */
-	--greeter-h-font-size: var(--iam-greeter-h-font-size-1, var(--iam-h-font-size-1));
+	/* if we use iam-h as mix, we should redefine its varables */
+	--iam-h-font-size-1: var(--iam-greeter-h-font-size-1);
 }
 /* #endregion "greeter-h > modifiers" */
 
 /* #region "greeter-h > index" (any element without modifiers) */
 [iam-greeter-h] {
 	/* get themed color as separate h1-h5 colors, then common themed color, then fallback */
-	color: var(--greeter-h-font-color, var(--iam-greeter-h-font-color, olive));
+	/* color: var(--greeter-h-font-color, var(--iam-greeter-h-font-color, olive)); */
 
 	/* unnecessary fallback for browsers without css-vars - we have "iam-h" with same functionality */
 	/* font-size: normal; */
 
 	/* if variable is undefined, [iam-h ~= h1] font-size also not set! (because same specificy overriding) */
 	/* comment out to use iam-h mixed & themed, otherwise size unset to regular text size */
-	font-size: var(--greeter-h-font-size, unset); /* fallback if h1-h5 sizes aren't set in themes */
+	/* font-size: var(--greeter-h-font-size, unset); *//* fallback if h1-h5 sizes aren't set in themes */
+	/* font-size defined by iam-h re-setting size-variable */
+
+	/* if we use iam-h as mix, we should redefine its varables */
+	/* theme should be imported earlier than module, otherwise all variables will be undefined here, olive as result */
+	--iam-h-font-color: var(--greeter-h-font-color, var(--iam-greeter-h-font-color, olive));
 }
 /* #endregion "greeter-h > index" */
 /* #endregion "greeter-h" */

@@ -1,5 +1,9 @@
 /* "iam-" prefixes should be used in attributes but not file/dirnames */
 
+/* #region themes (must be imported first for using it in modules) */
+@import url("~/themes/thm-simple.css");
+/* #endregion themes */
+
 /* #region css-only "components" (not templated) */
 @import url("#common/h/h.css");
 /* #endregion css-only "components" (not templated) */
@@ -7,10 +11,6 @@
 /* #region components */
 @import url("#common/greeter-h/greeter-h.css");
 /* #endregion components */
-
-/* #region themes */
-@import url("~/themes/thm-simple.css");
-/* #endregion themes */
 
 /* #region "main > index" */
 [iam-main-h] {

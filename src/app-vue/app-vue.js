@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import mustache from 'mustache';
 
-import { components, elSelector as el, warnings } from './app-vue.config';
 import { conf as confGreeter } from '#common/Greeter';
+import { components, elSelector as el, warnings } from './app-vue.config';
 
 const appVue = {
 	init() {
